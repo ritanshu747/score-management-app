@@ -5,6 +5,17 @@ import CreateForm from './components/CreateForm';
 import EditForm from './components/EditForm';
 import RandomPlayerDialog from './components/RandomPlayerDialog';
 import axios from 'axios';
+import { styled } from '@mui/system';
+
+const ResponsiveContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100vh',
+  '@media (max-width: 600px)': {
+    flexDirection: 'column',
+  },
+});
 
 const App = () => {
   const [isFormVisible, setFormVisible] = useState(false);
