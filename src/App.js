@@ -12,7 +12,7 @@ const App = () => {
   const [isRandomPlayerVisible, setRandomPlayerVisible] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [filteredTableData, setFilteredTableData] = useState([]);
-  // const [selectedPlayerId, setSelectedPlayerId] = useState(null);
+  // const [selectedPlayerId, setSelectedPlayerId] = useState(null); // Commented out this line
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -26,7 +26,7 @@ const App = () => {
 
   const handleEditFormClose = () => {
     setEditFormVisible(false);
-    // setSelectedPlayerId(null);
+    // setSelectedPlayerId(null); // Commented out this line
     setSelectedPlayer(null);
   };
 
@@ -36,7 +36,7 @@ const App = () => {
 
   const handleAddPlayer = async (newPlayer) => {
     try {
-      const response = await axios.post('http://localhost:8000/players', newPlayer);
+      const response = await axios.post('https://scores-application.onrender.com/players', newPlayer);
       setTableData([...tableData, response.data]);
     } catch (error) {
       console.error('Error adding player:', error);
@@ -47,7 +47,7 @@ const App = () => {
 
   const handleEdit = (id) => {
     const playerToEdit = tableData.find((player) => player.id === id);
-    // setSelectedPlayerId(id);
+    // setSelectedPlayerId(id); // Commented out this line
     setSelectedPlayer(playerToEdit);
     setEditFormVisible(true);
   };
@@ -60,7 +60,7 @@ const App = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/players/${id}`);
+      await axios.delete(`https://scores-application.onrender.com/players/${id}`);
       setTableData((prevData) => prevData.filter((player) => player.id !== id));
     } catch (error) {
       console.error(`Error deleting player with ID ${id}:`, error);
@@ -82,7 +82,7 @@ const App = () => {
 
   const handleFetchRandomPlayer = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/players/random');
+      const response = await axios.get('https://scores-application.onrender.com/players/random');
       setSelectedPlayer(response.data);
       setRandomPlayerVisible(true);
     } catch (error) {
@@ -93,7 +93,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/players');
+        const response = await axios.get('https://scores-application.onrender.com/players');
         setTableData(response.data);
       } catch (error) {
         console.error('Error fetching player data:', error);
@@ -104,7 +104,6 @@ const App = () => {
   }, []);
 
   return (
-    
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div>
         <Button variant="contained" color="primary" onClick={handleButtonClick} style={{ marginBottom: '10px' }}>
