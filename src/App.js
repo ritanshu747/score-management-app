@@ -12,7 +12,7 @@ const App = () => {
   const [isRandomPlayerVisible, setRandomPlayerVisible] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [filteredTableData, setFilteredTableData] = useState([]);
-  const [selectedPlayerId, setSelectedPlayerId] = useState(null);
+  // const [selectedPlayerId, setSelectedPlayerId] = useState(null);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -26,7 +26,7 @@ const App = () => {
 
   const handleEditFormClose = () => {
     setEditFormVisible(false);
-    setSelectedPlayerId(null);
+    // setSelectedPlayerId(null);
     setSelectedPlayer(null);
   };
 
@@ -47,7 +47,7 @@ const App = () => {
 
   const handleEdit = (id) => {
     const playerToEdit = tableData.find((player) => player.id === id);
-    setSelectedPlayerId(id);
+    // setSelectedPlayerId(id);
     setSelectedPlayer(playerToEdit);
     setEditFormVisible(true);
   };
