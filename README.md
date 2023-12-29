@@ -36,5 +36,5 @@ The backend is implemented using Node.js and Express. It provides RESTful API en
 
 1. **Clone Repository:**
    ```bash
-   git clone https://github.com/your-username/player-management-system.git
+   git clone https://github.com/ritanshu747/score-management-app.git
    cd player-management-system
